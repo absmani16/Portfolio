@@ -1,7 +1,12 @@
+import { lazy } from "react";
+
+import "./assets/css/style.module.css"
+
+const Layout = lazy(() => import("./Pages/Layout"));
+
+
 function App() {
-  return (
-   <></>
-  );
+  return <Layout />
 }
 
 export default App;
