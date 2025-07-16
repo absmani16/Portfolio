@@ -1,0 +1,38 @@
+.home {
+    background-image: url("../../../assets/images/profileBanner.jpg");
+    background-size: cover;
+    position: relative;
+    width: 100%;
+}
+
+.home::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: var(--banner-background);
+}
+
+.title {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    transform: translate(-10%, -30%);
+    color: var(--white-text);
+    z-index: 1;
+}
+
+@media(max-width: 950px) {
+    .home {
+        background-attachment: fixed;
+    }
+}
+
+@media(max-width: 800px) {
+    .home {
+        background-position: center;
+    }
+}

@@ -1,0 +1,119 @@
+.menu {
+    padding: 60px 40px 40px;
+    width: 320px;
+    text-align: center;
+    position: relative;
+    margin-top: -20px;
+}
+
+.menu::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    box-shadow: inset -15px 15px 25px var(--menu-shadow);
+}
+
+.title {
+    font-weight: 600;
+    position: relative;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.title .image {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: 5px solid var(--menu-shadow);
+}
+
+.title .titleText {
+    margin-top: 10px;
+}
+
+.items {
+    margin-top: 40px;
+}
+
+.item {
+    line-height: 1.65;
+    cursor: pointer;
+    margin: 5px 0;
+    position: relative;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 18px;
+}
+
+.item span,
+.title span {
+    position: relative;
+    transition: border-bottom 0.4s, width 0.4s;
+}
+
+.item:hover span::before,
+.title:hover span::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: -5px;
+    border-bottom: 4px solid var(--border-color);
+    animation: bottomBorder 0.8S;
+}
+
+.item:hover,
+.title:hover {
+    color: var(--white-text);
+    transition: color 0.5s;
+}
+
+.mobileMenu,
+.mobileMenu::before,
+.mobileMenu::after {
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    left: 30px;
+    top: 30px;
+    background-color: var(--white-text);
+    z-index: 1;
+}
+
+.mobileMenu::before, .mobileMenu::after {
+    content: "";
+}
+
+.mobileMenu::before {
+    top: 25px;
+}
+
+.mobileMenu::after {
+    top: 35px;
+}
+
+@keyframes bottomBorder {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@media(max-width: 950px) {
+    .menu {
+        width: 250px;
+    }
+}
+
+@media (max-width: 740px) {
+    .menu {
+        display: none;
+    }
+}
