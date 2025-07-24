@@ -16,13 +16,15 @@
     background-color: var(--banner-background);
 }
 
-.title {
+.titles {
     position: absolute;
+    left: 50px;
     top: 30%;
-    left: 10%;
-    transform: translate(-10%, -30%);
-    color: var(--white-text);
     z-index: 1;
+}
+
+.bannerTitle {
+    color: var(--white-text);
 }
 
 @media(max-width: 950px) {
@@ -34,5 +36,15 @@
 @media(max-width: 800px) {
     .home {
         background-position: center;
+    }
+}
+
+@media(max-width: 550px) {
+    .home {
+        background-position: right;
+    }
+
+    .titles {
+        left: 20px;
     }
 }

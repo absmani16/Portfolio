@@ -1,11 +1,12 @@
+import { useState } from "react";
 import { profileThumnail } from "../../Component/Icon";
 import style from "./style.module.css";
 
 export default function Menu() {
-    const { innerWidth } = window
+    const [opened, setOpened] = useState(false);
     return (
         <>
-            <div className={style.menu}>
+            <div className={`${style.menu}${opened === true ? " " + style.opened : ""}`}>
                 <div className={style.title}>
                     <img src={profileThumnail} className={style.image} alt="Profile loading" />
                     <h2 className={style.titleText}>
@@ -28,8 +29,13 @@ export default function Menu() {
                 </div>
             </div>
             {
-                innerWidth <= 740 && (
-                    <div className={style.mobileMenu}></div>
+                window.innerWidth <= 740 && (
+                    <div className={`${style.mobileHeader}${opened === true ? " " + style.menubarOpened : ""}`}>
+                        <div className={style.menuTitle}>Bala</div>
+                        <button className={style.menubar} onClick={() => setOpened(!opened)}>
+                            <span></span>
+                        </button>
+                    </div>
                 )
             }
         </>

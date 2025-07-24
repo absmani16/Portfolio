@@ -5,16 +5,24 @@
     --white-text: #fff;
     --banner-background: #313134a1;
     --border-color: #5941ff;
-    --menu-shadow: #c7c5c58c
+    --menu-shadow: #c7c5c58c;
 }
 
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: normal;
-    box-sizing: border-box;
     color: var(--text-color);
+}
+
+button {
+    border: none;
+    outline: 0;
 }

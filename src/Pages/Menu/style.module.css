@@ -72,28 +72,54 @@
     transition: color 0.5s;
 }
 
-.mobileMenu,
-.mobileMenu::before,
-.mobileMenu::after {
+.mobileHeader {
     position: absolute;
-    width: 20px;
-    height: 4px;
-    left: 30px;
-    top: 30px;
-    background-color: var(--white-text);
-    z-index: 1;
+    z-index: 2;
+    top: 50px;
+    left: 50px;
+    width: calc(100% - 100px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.mobileMenu::before, .mobileMenu::after {
+.menuTitle {
+    font-size: 25px;
+    font-family: cursive;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--white-text);
+    opacity: 1;
+    transition: opacity 0.6s;
+}
+
+.menubar {
+    position: relative;
+    width: 25px;
+    height: 20px;
+    display: inline-block;
+    background: transparent;
+    cursor: pointer;
+    padding: 16px;
+}
+
+.menubar span,
+.menubar span::after,
+.menubar span::before {
     content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 3px;
+    background-color: var(--white-text);
+    margin-top: 8px;
+    border-radius: 10px;
+    transition: all 0.6s;
 }
 
-.mobileMenu::before {
-    top: 25px;
-}
-
-.mobileMenu::after {
-    top: 35px;
+.menubar span::before {
+    margin-top: -8px;
 }
 
 @keyframes bottomBorder {
@@ -114,6 +140,41 @@
 
 @media (max-width: 740px) {
     .menu {
+        margin-left: -250px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        background-color: var(--black-color);
+        transition: margin-left 0.6s;
+    }
+
+    .opened {
+        margin-left: 0;
+    }
+
+    .menubarOpened .menuTitle {
+        opacity: 0;
+    }
+
+    .menubarOpened .menubar span::before {
         display: none;
+    }
+
+    .menubarOpened .menubar span {
+        transform: rotate(45deg);
+    }
+
+    .menubarOpened .menubar span::after {
+        transform: rotate(90deg);
+        margin: 0;
+    }
+}
+
+@media(max-width: 550px) {
+    .mobileHeader {
+        left: 20px;
+        top: 20px;
+        width: calc(100% - 40px);
     }
 }
