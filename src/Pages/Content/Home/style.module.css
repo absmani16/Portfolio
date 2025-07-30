@@ -3,6 +3,7 @@
     background-size: cover;
     position: relative;
     width: 100%;
+    transition: all 0.4s;
 }
 
 .home::after {
@@ -31,6 +32,16 @@
     .home {
         background-attachment: fixed;
     }
+
+    .titles {
+        background-color: var(--banner-title-background);
+        left: 0;
+        bottom: 0;
+        top: auto;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
 }
 
 @media(max-width: 800px) {
@@ -39,12 +50,14 @@
     }
 }
 
+@media(max-width: 740px) {
+    .titles {
+        bottom: 5%;
+    }
+}
+
 @media(max-width: 550px) {
     .home {
-        background-position: right;
-    }
-
-    .titles {
-        left: 20px;
+        background-position: top;
     }
 }

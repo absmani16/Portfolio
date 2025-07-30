@@ -1,12 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { profileThumnail } from "../../Component/Icon";
 import style from "./style.module.css";
 
 export default function Menu() {
-    const [opened, setOpened] = useState(false);
+    const [hamburgerMenu, setHamburgerMenu] = useState({});
+
+    const handleUpdate = () => {
+        setHamburgerMenu(prev => {
+            return {
+                ...prev,
+                windowSize: window.innerWidth
+            }
+        })
+    };
+
+    useEffect(() => {
+        handleUpdate()
+        window.addEventListener("resize", handleUpdate);
+    }, []);
+
     return (
         <>
-            <div className={`${style.menu}${opened === true ? " " + style.opened : ""}`}>
+            <div className={`${style.menu}${hamburgerMenu.opened === true ? " " + style.opened : ""}`}>
                 <div className={style.title}>
                     <img src={profileThumnail} className={style.image} alt="Profile loading" />
                     <h2 className={style.titleText}>
@@ -29,13 +44,20 @@ export default function Menu() {
                 </div>
             </div>
             {
-                window.innerWidth <= 740 && (
-                    <div className={`${style.mobileHeader}${opened === true ? " " + style.menubarOpened : ""}`}>
+                hamburgerMenu.windowSize <= 740 && (
+                    <div className={`${style.mobileHeader}${hamburgerMenu.opened === true ? " " + style.menubarOpened : ""}`}>
                         <div className={style.menuTitle}>Bala</div>
-                        <button className={style.menubar} onClick={() => setOpened(!opened)}>
+                        <button
+                            className={style.menubar}
+                            onClick={() => {
+                                setHamburgerMenu(prev => {
+                                    return { ...prev, opened: !hamburgerMenu.opened }
+                                })
+                            }}
+                        >
                             <span></span>
                         </button>
-                    </div>
+                    </div >
                 )
             }
         </>

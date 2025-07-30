@@ -34,6 +34,10 @@
     margin-top: 10px;
 }
 
+.titleText span {
+    letter-spacing: 5px;
+}
+
 .items {
     margin-top: 40px;
 }
@@ -43,7 +47,7 @@
     cursor: pointer;
     margin: 5px 0;
     position: relative;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-color);
     font-size: 18px;
 }

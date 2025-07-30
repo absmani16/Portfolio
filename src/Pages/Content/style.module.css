@@ -3,12 +3,11 @@
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
     background: transparent;
-    border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {

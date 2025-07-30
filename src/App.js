@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { ToastContainer } from "react-toastify";
 
 import "./assets/css/style.module.css"
 
@@ -8,6 +9,11 @@ function App() {
   return (
 	  	<Suspense fallback={<div>Loading...</div>}>
 	  		<Layout />
+			<ToastContainer 
+				theme="dark"
+				hideProgressBar={true}
+				closeOnClick={true}
+			/>
 	  	</Suspense>
   	)
 }

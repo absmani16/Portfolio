@@ -6,12 +6,16 @@
     --banner-background: #313134a1;
     --border-color: #5941ff;
     --menu-shadow: #c7c5c58c;
+    --banner-title-background: #5941ff99;
+    --toastify-color-dark: var(--banner-title-background);
+    --toastify-icon-color-error: var(--white-text);
 }
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    letter-spacing: 1px;
 }
 
 body {
@@ -25,4 +29,12 @@ body {
 button {
     border: none;
     outline: 0;
+}
+
+:global(.Toastify__toast) {
+    border-radius: 0;
+}
+
+:global(.Toastify__close-button) {
+    display: none;
 }
